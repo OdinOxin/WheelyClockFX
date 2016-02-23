@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
-import java.util.Iterator;
 
 import de.odinoxin.wheelyclock.Menu;
 import de.odinoxin.wheelyclock.wheel.Wheel;
@@ -73,69 +72,37 @@ public class Countdown extends Application implements WheelHandler
 						map.put(wheelId, new Wheel());
 					
 					if(args[i].contains("wheelcolor"))
-					{
 						map.get(wheelId).setWheelColor(Color.web(value));
-					}
 					else if(args[i].contains("wheelnullcolor"))
-					{
 						map.get(wheelId).setWheelNullColor(Color.web(value));
-					}
 					else if(args[i].contains("wheelradius"))
-					{
 						map.get(wheelId).setWheelRadius(Double.parseDouble(value));
-					}
 					else if(args[i].contains("wheelthickness"))
-					{
 						map.get(wheelId).setWheelThickness(Double.parseDouble(value));
-					}
 					else if(args[i].contains("wheelstroked"))
-					{
 						map.get(wheelId).setWheelStroked(Boolean.parseBoolean(value));
-					}
 					else if(args[i].contains("valuecolor"))
-					{
 						map.get(wheelId).setValueColor(Color.web(value));
-					}
 					else if(args[i].contains("valuefont"))
-					{
 						map.get(wheelId).setValueFont(Font.font(value, map.get(wheelId).getValueFont() != null ? map.get(wheelId).getValueFont().getSize() : 24));
-					}
 					else if(args[i].contains("valueunit"))
-					{
 						map.get(wheelId).setvalueUnit(Integer.parseInt(value));
-					}
 					else if(args[i].contains("valuesize"))
-					{
 						map.get(wheelId).setValueFont(Font.font(map.get(wheelId).getValueFont() != null ? map.get(wheelId).getValueFont().getName() : new Font(24).getName(), Double.parseDouble(value)));
-					}
 					else if(args[i].contains("valuemaximum"))
-					{
 						map.get(wheelId).setValueMaximum(Integer.parseInt(value));
-					}
 					else if(args[i].contains("textcolor"))
-					{
 						map.get(wheelId).setTextColor(Color.web(value));
-					}
 					else if(args[i].contains("textfont"))
-					{
 						map.get(wheelId).setTextFont(Font.font(value, map.get(wheelId).getTextFont() != null ? map.get(wheelId).getTextFont().getSize() : 14));
-					}
 					else if(args[i].contains("textsize"))
-					{
 						map.get(wheelId).setTextFont(Font.font(map.get(wheelId).getTextFont() != null ? map.get(wheelId).getTextFont().getName() : new Font(24).getName(), Double.parseDouble(value)));
-					}
 					else if(args[i].contains("texty"))
-					{
 						map.get(wheelId).setTextY(Double.parseDouble(value));
-					}
 					else if(args[i].contains("textsg"))
-					{
 						map.get(wheelId).setTextSg(value);
-					}
 					else if(args[i].contains("textpl"))
-					{
 						map.get(wheelId).setTextPl(value);
-					}
 				}
 				else if(args[i].startsWith("stage"))
 				{
@@ -238,16 +205,12 @@ public class Countdown extends Application implements WheelHandler
 		}
 		int[] wheelIds = new int[map.keySet().size()];
 		int i = 0;
-		for(Iterator<Integer> iterator = map.keySet().iterator(); iterator.hasNext();)
-		{
-			wheelIds[i++] = (int) iterator.next();
-		}
+		for(int id : map.keySet())
+			wheelIds[i++] = id;
 		Arrays.sort(wheelIds);
 		this.wheels = new Wheel[map.keySet().size()];
 		for(int j = 0; j < wheelIds.length; j++)
-		{
 			this.wheels[j] = map.get(wheelIds[j]);
-		}
 	}
 	
 	//-- Application --

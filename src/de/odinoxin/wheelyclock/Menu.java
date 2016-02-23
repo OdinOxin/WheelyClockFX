@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -43,8 +41,7 @@ public class Menu extends Application
 				{
 					try
 					{
-						Clock c = new Clock(parameters);
-						c.start(new Stage());
+						new Clock(parameters).start(new Stage());
 						launched = true;
 					}
 					catch(Exception e)
